@@ -46,13 +46,19 @@ extension MoviesViewController: UITableViewDataSource {
         return 2
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
-            return popularMovies.count
+        if section == 0 &&  popularMovies.count >= 2 {
+            return 2
         }
         if section == 1 {
             return moviesPlayingNow.count
         }
         return 0
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 { return "Popular Movies" }
+        if section == 1 { return "Now Playing" }
+        return ""
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

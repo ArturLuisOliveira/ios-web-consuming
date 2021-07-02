@@ -24,6 +24,7 @@ class MovieTableViewCell: UITableViewCell {
         nameLabel.text = movie.title
         descriptionLabel.text = movie.overview
         ratingLabel.text = String(movie.voteAvarage)
+        ImageService.setImageToImageView(imageView: movieImageView, from: movie.posterPath)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

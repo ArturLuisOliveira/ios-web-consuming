@@ -23,6 +23,7 @@
 		34A5E611268F7C94002C6811 /* MovieAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A5E610268F7C94002C6811 /* MovieAPI.swift */; };
 		34A5E614268F9253002C6811 /* environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A5E613268F9253002C6811 /* environment.swift */; };
 		34A5E616268F96FA002C6811 /* MovieListType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A5E615268F96FA002C6811 /* MovieListType.swift */; };
+		34A5E619268F9D5E002C6811 /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A5E618268F9D5E002C6811 /* ImageService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		34A5E610268F7C94002C6811 /* MovieAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieAPI.swift; sourceTree = "<group>"; };
 		34A5E613268F9253002C6811 /* environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = environment.swift; sourceTree = "<group>"; };
 		34A5E615268F96FA002C6811 /* MovieListType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListType.swift; sourceTree = "<group>"; };
+		34A5E618268F9D5E002C6811 /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 		34A5E5F4268E4B47002C6811 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				34A5E617268F9D49002C6811 /* Image Service */,
 				34A5E5F5268E4B60002C6811 /* API */,
 			);
 			path = Services;
@@ -159,6 +162,14 @@
 				34A5E610268F7C94002C6811 /* MovieAPI.swift */,
 			);
 			path = Clients;
+			sourceTree = "<group>";
+		};
+		34A5E617268F9D49002C6811 /* Image Service */ = {
+			isa = PBXGroup;
+			children = (
+				34A5E618268F9D5E002C6811 /* ImageService.swift */,
+			);
+			path = "Image Service";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,6 +255,7 @@
 				34A5E607268E5C49002C6811 /* API.swift in Sources */,
 				34A5E616268F96FA002C6811 /* MovieListType.swift in Sources */,
 				34A5E60A268F7796002C6811 /* Movie.swift in Sources */,
+				34A5E619268F9D5E002C6811 /* ImageService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
