@@ -9,11 +9,6 @@ import Foundation
 
 struct MovieAPI {
     
-    enum MovieListType {
-        case POPULAR
-        case NOW_PLAYING
-    }
-    
     static func list(by listType: MovieListType, completionHandler: @escaping ([Movie]) -> Void) {
         switch listType {
         case .NOW_PLAYING:

@@ -20,8 +20,10 @@ class MovieTableViewCell: UITableViewCell {
         
     }
     
-    static func build(music: Movie) {
-//        nameLabel =
+    func build(movie: Movie) {
+        nameLabel.text = movie.title
+        descriptionLabel.text = movie.overview
+        ratingLabel.text = String(movie.voteAvarage)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

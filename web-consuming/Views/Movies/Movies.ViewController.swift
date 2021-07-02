@@ -10,9 +10,22 @@ import UIKit
 class MoviesViewController: UIViewController {
     @IBOutlet var moviesTableView: UITableView!
     
+    var popularMovies: [Movie] = []
+    var moviesPlayingNow: [Movie] = []
+    var controller: MoviesController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         moviesTableView.dataSource = self
+        controller = MoviesController(view: self)
+        controller?.fetchMovies(type: .POPULAR)
+        controller?.fetchMovies(type: .NOW_PLAYING)
+    }
+    
+    func reload() {
+        DispatchQueue.main.async {
+            self.moviesTableView.reloadData()
+        }
     }
     
     
@@ -33,11 +46,23 @@ extension MoviesViewController: UITableViewDataSource {
         return 2
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        if section == 0 {
+            return popularMovies.count
+        }
+        if section == 1 {
+            return moviesPlayingNow.count
+        }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = moviesTableView.dequeueReusableCell(withIdentifier: "Movie", for: indexPath) as! MovieTableViewCell
+        if indexPath.section == 0 {
+            cell.build(movie: popularMovies[indexPath.item])
+        }
+        if indexPath.section == 1 {
+            cell.build(movie: moviesPlayingNow[indexPath.item])
+        }
         return cell
     }
     
