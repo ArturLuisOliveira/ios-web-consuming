@@ -31,17 +31,13 @@ struct API {
             
             guard
                 let data = data  else {
-                print("complete null")
                 completionHandler(nil)
                 return
             }
             do {
                 let recieved = try decoder.decode(T.self, from: data )
-                
-                print("response \(recieved)")
                 completionHandler(recieved)
             } catch {
-                print(error)
                 completionHandler(nil)
             }
             

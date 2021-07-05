@@ -17,6 +17,7 @@ class MoviesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         moviesTableView.dataSource = self
+        moviesTableView.delegate = self
         controller = MoviesController(view: self)
         controller?.fetchMovies(type: .POPULAR)
         controller?.fetchMovies(type: .NOW_PLAYING)
@@ -41,10 +42,26 @@ class MoviesViewController: UIViewController {
     
 }
 
-extension MoviesViewController: UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+extension MoviesViewController: UITableViewDelegate {
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowDetailsSegue", let movie = sender as? Movie {
+            let destination = segue.destination as! DetailsViewController
+            destination.build(movie: movie)
+        }
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let movie = indexPath.section == 0
+            ? popularMovies[indexPath.item]
+            : moviesPlayingNow[indexPath.item]
+        self.performSegue(withIdentifier: "ShowDetailsSegue", sender: movie)
+    }
+}
+
+extension MoviesViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int { 2 }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 &&  popularMovies.count >= 2 {
             return 2
@@ -71,6 +88,5 @@ extension MoviesViewController: UITableViewDataSource {
         }
         return cell
     }
-    
     
 }
