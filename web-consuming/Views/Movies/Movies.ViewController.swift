@@ -55,6 +55,7 @@ extension MoviesViewController: UITableViewDelegate {
         let movie = indexPath.section == 0
             ? popularMovies[indexPath.item]
             : moviesPlayingNow[indexPath.item]
+        tableView.deselectRow(at: indexPath, animated: true)
         self.performSegue(withIdentifier: "ShowDetailsSegue", sender: movie)
     }
 }
